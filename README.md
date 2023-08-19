@@ -1,1 +1,1 @@
-# jap-mapping
+# jpa-mapping
