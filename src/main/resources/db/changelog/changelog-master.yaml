@@ -1,0 +1,313 @@
+databaseChangeLog:
+- changeSet:
+    id: 1692243822426-1
+    author: welisson (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              primaryKeyName: many_pkey
+            name: id
+            type: BIGSERIAL
+        tableName: many
+- changeSet:
+    id: 1692243822426-2
+    author: welisson (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: many_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: many_uni_id
+            type: BIGINT
+        tableName: many_to_many_bidirectional
+- changeSet:
+    id: 1692243822426-3
+    author: welisson (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: many_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: many_uni_id
+            type: BIGINT
+        tableName: many_to_many_unidirectional
+- changeSet:
+    id: 1692243822426-4
+    author: welisson (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              primaryKeyName: manybidirectional_pkey
+            name: id
+            type: BIGSERIAL
+        - column:
+            name: one_id
+            type: BIGINT
+        tableName: manybidirectional
+- changeSet:
+    id: 1692243822426-5
+    author: welisson (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              primaryKeyName: manyunidirectional_pkey
+            name: id
+            type: BIGSERIAL
+        - column:
+            name: one_id
+            type: BIGINT
+        tableName: manyunidirectional
+- changeSet:
+    id: 1692243822426-6
+    author: welisson (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              primaryKeyName: one_pkey
+            name: id
+            type: BIGSERIAL
+        - column:
+            name: one_bidirectional
+            type: BIGINT
+        tableName: one
+- changeSet:
+    id: 1692243822426-7
+    author: welisson (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              primaryKeyName: onebidirectional_pkey
+            name: id
+            type: BIGSERIAL
+        tableName: onebidirectional
+- changeSet:
+    id: 1692243822426-8
+    author: welisson (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              primaryKeyName: oneunidirectional_pkey
+            name: id
+            type: BIGSERIAL
+        - column:
+            name: one_id
+            type: BIGINT
+        tableName: oneunidirectional
+- changeSet:
+    id: 1692243822426-9
+    author: welisson (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: oneunidirectional_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: many_id
+            type: BIGINT
+        tableName: oneunidirectional_many
+- changeSet:
+    id: 1692243822426-10
+    author: welisson (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: one_bidirectional
+        constraintName: one_one_bidirectional_key
+        tableName: one
+- changeSet:
+    id: 1692243822426-11
+    author: welisson (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: many_id
+        constraintName: oneunidirectional_many_many_id_key
+        tableName: oneunidirectional_many
+- changeSet:
+    id: 1692243822426-12
+    author: welisson (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: one_id
+        constraintName: oneunidirectional_one_id_key
+        tableName: oneunidirectional
+- changeSet:
+    id: 1692243822426-13
+    author: welisson (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: one_id
+        baseTableName: manybidirectional
+        constraintName: fk4pt3qfygt5wj84bt1ntpat8h1
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: one
+- changeSet:
+    id: 1692243822426-14
+    author: welisson (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: many_id
+        baseTableName: many_to_many_unidirectional
+        constraintName: fkculw80hx6m7niiydqfsg0pi66
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: many
+- changeSet:
+    id: 1692243822426-15
+    author: welisson (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: many_uni_id
+        baseTableName: many_to_many_bidirectional
+        constraintName: fkf9krc9bqsy4gdhdc7h9bux7v0
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: manybidirectional
+- changeSet:
+    id: 1692243822426-16
+    author: welisson (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: one_id
+        baseTableName: manyunidirectional
+        constraintName: fkhemwv9fiiu7guhbr8sd3dv3y3
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: one
+- changeSet:
+    id: 1692243822426-17
+    author: welisson (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: one_id
+        baseTableName: oneunidirectional
+        constraintName: fkiu9shrwfdcu8oe2ppxvvk3odg
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: one
+- changeSet:
+    id: 1692243822426-18
+    author: welisson (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: many_uni_id
+        baseTableName: many_to_many_unidirectional
+        constraintName: fkkl9oj746xfx82hd5b0wsvuo1k
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: manyunidirectional
+- changeSet:
+    id: 1692243822426-19
+    author: welisson (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: one_bidirectional
+        baseTableName: one
+        constraintName: fkm0r7s0s4otmssb7ot6o8l0cju
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: onebidirectional
+- changeSet:
+    id: 1692243822426-20
+    author: welisson (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: many_id
+        baseTableName: many_to_many_bidirectional
+        constraintName: fkri67mq9bca3jybiiujps8vb7o
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: many
+- changeSet:
+    id: 1692243822426-21
+    author: welisson (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: oneunidirectional_id
+        baseTableName: oneunidirectional_many
+        constraintName: fktcdobdebew1sfo54xwvmew8av
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: oneunidirectional
+- changeSet:
+    id: 1692243822426-22
+    author: welisson (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: many_id
+        baseTableName: oneunidirectional_many
+        constraintName: fkuylq21lhjlr7kcuyge2d2l47
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: many
+
